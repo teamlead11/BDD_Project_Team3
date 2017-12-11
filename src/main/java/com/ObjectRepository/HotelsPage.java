@@ -16,6 +16,7 @@ public class HotelsPage extends FunctionalLibrary {
 	private WebElement phpLogo;
 	@FindBy(xpath = "//a//strong[text()='PHPTRAVELS']")
 	private WebElement phpText;
+	
 	@FindBy(xpath = "//input[@type='email']")
 	private WebElement emailNewsletter;
 	@FindBy(xpath = "//button[@class='btn btn-default btncustom sub_newsletter']")
@@ -131,7 +132,6 @@ public class HotelsPage extends FunctionalLibrary {
 
 	public void businessLinks(String businesslink) {
 		WebElement element = null;
-		jsScrollPageDown(getExtranetLogin());
 		List<WebElement> options = getBusinessDetails().findElements(By.tagName("li"));
 		for (int i = 0; i < options.size(); i++) {
 			String text = options.get(i).getText();
@@ -143,9 +143,9 @@ public class HotelsPage extends FunctionalLibrary {
 		}
 		click(element);
 	}
+
 	public void footerlinks(String footerlink) {
 		WebElement element = null;
-		jsScrollPageDown(getExtranetLogin());
 		List<WebElement> options = getFooterDetails().findElements(By.tagName("li"));
 		for (int i = 0; i < options.size(); i++) {
 			String text = options.get(i).getText();
