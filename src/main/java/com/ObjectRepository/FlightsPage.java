@@ -133,8 +133,6 @@ public class FlightsPage extends FunctionalLibrary{
 	public WebElement getDrpDwnExpiryYear() {
 		return drpDwnExpiryYear;
 	}
-
-
 	public WebElement getTxtCVV() {
 		return txtCVV;
 	}
