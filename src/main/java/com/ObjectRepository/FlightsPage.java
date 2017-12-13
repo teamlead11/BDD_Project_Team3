@@ -1,5 +1,6 @@
 package com.ObjectRepository;
 
+
 import java.util.List;
 
 import org.openqa.selenium.By;
@@ -143,7 +144,6 @@ public class FlightsPage extends FunctionalLibrary{
 	}
 	public static void flightBookNow(String indexValue) {
 		WebElement required = null;
-		try {
 			List<WebElement> btn = ((WebElement) getBtnDetails()).findElements(By.tagName("button"));
 			System.out.println(btn.size());
 			int size = btn.size();
@@ -154,11 +154,7 @@ public class FlightsPage extends FunctionalLibrary{
 				}
 				click(required);
 			}
-		} catch (NullPointerException e) {
-			e.getMessage();
-			System.out.println(e);
 		}
 	}
 
-}
 
