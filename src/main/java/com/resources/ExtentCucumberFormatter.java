@@ -231,6 +231,7 @@ public class ExtentCucumberFormatter implements Reporter, Formatter {
 
 	}
 	
+@SuppressWarnings("unused")
 private static ExtentXReporter getExtentXReporter() {
     	
         ExtentXReporter extentx = new ExtentXReporter("10.28.177.64", 27017);

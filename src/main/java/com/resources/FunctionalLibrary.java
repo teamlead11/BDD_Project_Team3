@@ -51,7 +51,7 @@ public class FunctionalLibrary {
 	private static String homeWindow = null;
 
 	public static WebDriver driverInit() {
-		System.setProperty("webdriver.chrome.driver", "src/test/resources/lib/chromedriver.exe");
+		System.setProperty("webdriver.chrome.driver", "G:\\git\\driver\\chromedriver.exe");
 		driver = new ChromeDriver();
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		driver.manage().window().maximize();
@@ -249,15 +249,15 @@ public class FunctionalLibrary {
 	/**
 	 * Method to click the element
 	 * 
-	 * @param element
+	 * @param btn
 	 */
-	public static void click(WebElement element) {
+	public static void click(WebElement btn) {
 		try {
-			element.click();
-			Reporter.addStepLogPass(element.toString() + "element is clicked successfully");
+			 btn.click();
+			Reporter.addStepLogPass(btn.toString() + "element is clicked successfully");
 
 		} catch (Exception e) {
-			Reporter.addStepLogInfo(element.toString() + "element is not clicked" + e.getMessage());
+			Reporter.addStepLogInfo(btn.toString() + "element is not clicked" + e.getMessage());
 		}
 	}
 
