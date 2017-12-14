@@ -12,7 +12,7 @@ import com.resources.FunctionalLibrary;
 
 public class CarsPage {
 	  @FindBy(xpath="//h4[@class='RTL go-text-right mt0 list_title']")
-	  private  WebElement AllCarTitle;
+	  private static  WebElement AllCarTitle;
 	  
 	  @FindBy(xpath="//a[@class='go-right ellipsisFIX go-text-right mob-fs14']")
 	  private WebElement Carlocation;
@@ -48,7 +48,7 @@ public class CarsPage {
 	// getter methods to access elements
 	  
 		
-	  public WebElement getAllCarTitleField() {
+	  public static WebElement getAllCarTitleField() {
 			return AllCarTitle;
 			
 		}
@@ -82,7 +82,7 @@ public class CarsPage {
 		}
 		
 		
-		public void getAllCarTitleField(String name)
+		public WebElement getAllCarTitleField(String name)
 		{
 	WebElement carname = getAllCarTitleField();
 	List<WebElement>pages=carname.findElements(By.xpath("//img[@class='center-block']"));
@@ -97,6 +97,7 @@ public class CarsPage {
 
 				
 		carname.click();
+		return carname;
 		}
 		
 
