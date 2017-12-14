@@ -13,16 +13,18 @@ public class CarTestCase1 extends FunctionalLibrary {
 	
 	@Given("^I am in php travel car home page$")
 	public void i_am_in_php_travel_car_home_page() throws Throwable {
-	    // Write code here that turns the phrase above into concrete actions
+	   CarsPage page=new CarsPage(driver);
+	   getText(page.getCar());
 	    
 	}
 
 	@When("^Click the car \"([^\"]*)\"so the user can able to see all the cars$")
 	public void click_the_car_so_the_user_can_able_to_see_all_the_cars(String CarName) throws Throwable {
-	    CarsPage page = new CarsPage();
-	    getText(page.getAllCarTitleField(CarName));    
+	    CarsPage page = new CarsPage(driver);
+	    getText(page.getAllCarTitleField());    
 	}
 
+	
 	
 	
 
