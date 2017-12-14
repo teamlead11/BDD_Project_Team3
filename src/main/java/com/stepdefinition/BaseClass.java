@@ -11,11 +11,11 @@ public class BaseClass {
 	public static void beforeScenario() {
 
 		FunctionalLibrary.driverInit();
+
 		FunctionalLibrary.driver.get("http://www.phptravels.net/cars");
 	}
 
 	@After
-
 	public static void afterScenario() {
 		FunctionalLibrary.closeBrowser();
 	}
