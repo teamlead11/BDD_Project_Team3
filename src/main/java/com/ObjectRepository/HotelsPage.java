@@ -2,7 +2,7 @@ package com.ObjectRepository;
 
 import java.util.List;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
+
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -10,13 +10,11 @@ import org.openqa.selenium.support.PageFactory;
 import com.resources.FunctionalLibrary;
 
 public class HotelsPage extends FunctionalLibrary {
-	WebDriver driver;
-
+	
 	@FindBy(xpath = "//img[@alt='PHPTRAVELS'and @class='logo']")
 	private WebElement phpLogo;
 	@FindBy(xpath = "//a//strong[text()='PHPTRAVELS']")
 	private WebElement phpText;
-	
 	@FindBy(xpath = "//input[@type='email']")
 	private WebElement emailNewsletter;
 	@FindBy(xpath = "//button[@class='btn btn-default btncustom sub_newsletter']")
@@ -117,7 +115,7 @@ public class HotelsPage extends FunctionalLibrary {
 	// custom method
 	public void companyLinks(String companylink) {
 		WebElement element = null;
-		jsScrollPageDown(getExtranetLogin());
+		//jsScrollPageDown(getExtranetLogin());
 		List<WebElement> options = getCompanyDetails().findElements(By.tagName("li"));
 		for (int i = 0; i < options.size(); i++) {
 			String text = options.get(i).getText();
