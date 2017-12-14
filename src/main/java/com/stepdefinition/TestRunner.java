@@ -17,7 +17,7 @@ import cucumber.api.junit.Cucumber;
 
 public class TestRunner {
 
-	@BeforeClass
+	/*@BeforeClass
 	public static void beforeClass() {
 		LocalDateTime now = LocalDateTime.now();
 		int year = now.getYear();
@@ -31,5 +31,5 @@ public class TestRunner {
 				+ snewFilename1 + ".html";
 		File file = new File(filePath);
 		ExtentCucumberFormatter.setExtentHtmlReport(file);
-	}
+	}*/
 }
