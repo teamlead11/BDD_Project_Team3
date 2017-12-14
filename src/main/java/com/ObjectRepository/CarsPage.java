@@ -2,6 +2,7 @@ package com.ObjectRepository;
 
 import java.util.List;
 
+import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -70,8 +71,13 @@ public class CarsPage {
 		public WebElement getGuestField() {
 			return Guest;
 		}
-
 		
+		
+		public WebElement getCarlocation() {
+			return Carlocation;
+		}
+
+
 		
 		public List<WebElement> getAllCarDetailsButton() {
 			return AllCarbuttonDetails;
