@@ -143,6 +143,26 @@ public class CarsPage {
 				FunctionalLibrary.click(requiredElement);
 			}
 
+		public void getAllCarImage(String name)
+		 {
+			WebElement reqPage=null;
+		 	WebElement CarImage=getAllCarImage();
+		   List<WebElement> images=getAllCarDetailsButton();
+		   for(int i=0;i<images.size();i++)
+		   {
+		 	  String actualcarImage=getAllCarImage().get(i).findElement(By.xpath("..")).getText();
+		 	  System.out.println(actualcarImage);
+		 	  if(images.get(i).getText().equals(name))
+		 	  {
+		 		  reqPage=images.get(i);
+		 		 break;
+	 			} 
+		 	    }
+		
+			FunctionalLibrary.click(reqPage);
+		}
+
+
 		public void getCostofthecarField(String name)
 		 {
 		 	WebElement reqPage=null;
@@ -155,12 +175,16 @@ public class CarsPage {
 		 	  if(actualUSD.equals(name))
 		 	  {
 		 		  reqPage=AllCarbuttonDetails.get(i);
-		 		  
+		 		 break;
+	 			} 
 		 	  }
-		 	
+		   
+		   FunctionalLibrary.click(reqPage);
 		   }
-		 }
+		
+
 }
+
 		 
 		
 		
