@@ -12,12 +12,11 @@ import cucumber.api.CucumberOptions;
 import cucumber.api.junit.Cucumber;
 
 @RunWith(Cucumber.class)
-@CucumberOptions(features = "src/test/resources/com/Login", glue = { "com.stepdefinition" }, plugin = {
-		"com.resources.ExtentCucumberFormatter:" })
+@CucumberOptions(features = "src/test/resources/com/Carspage/SmokeCars.feature", glue = { "com.stepdefinition" })
 
 public class TestRunner {
 
-	@BeforeClass
+	/*@BeforeClass
 	public static void beforeClass() {
 		LocalDateTime now = LocalDateTime.now();
 		int year = now.getYear();
@@ -31,5 +30,5 @@ public class TestRunner {
 				+ snewFilename1 + ".html";
 		File file = new File(filePath);
 		ExtentCucumberFormatter.setExtentHtmlReport(file);
-	}
+	}*/
 }
