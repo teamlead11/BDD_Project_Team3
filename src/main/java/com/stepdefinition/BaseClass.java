@@ -1,4 +1,4 @@
-package com.stepdefinition;
+package com.stepdefinition; 
 
 import com.resources.FunctionalLibrary;
 
@@ -11,11 +11,11 @@ public class BaseClass {
 	public static void beforeScenario() {
 
 		FunctionalLibrary.driverInit();
-		FunctionalLibrary.driver.get("http://www.phptravels.net/");
+
+		FunctionalLibrary.driver.get("http://www.phptravels.net/cars");
 	}
 
 	@After
-
 	public static void afterScenario() {
 		FunctionalLibrary.closeBrowser();
 	}

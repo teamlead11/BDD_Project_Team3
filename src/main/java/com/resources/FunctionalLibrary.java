@@ -51,13 +51,13 @@ public class FunctionalLibrary {
 	private static String homeWindow = null;
 
 	public static WebDriver driverInit() {
-		System.setProperty("webdriver.chrome.driver", "src/test/resources/lib/chromedriver.exe");
+		System.setProperty("webdriver.chrome.driver", "G:\\git\\driver\\chromedriver.exe");
 		driver = new ChromeDriver();
 		//driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		driver.manage().window().maximize();
 		driver.manage().deleteAllCookies();
 		return driver;
-		
+
 	}
 
 	/**
@@ -249,15 +249,15 @@ public class FunctionalLibrary {
 	/**
 	 * Method to click the element
 	 * 
-	 * @param element
+	 * @param btn
 	 */
-	public static void click(WebElement element) {
+	public static void click(WebElement btn) {
 		try {
-			element.click();
-			Reporter.addStepLogPass(element.toString() + "element is clicked successfully");
+			 btn.click();
+			Reporter.addStepLogPass(btn.toString() + "element is clicked successfully");
 
 		} catch (Exception e) {
-			Reporter.addStepLogInfo(element.toString() + "element is not clicked" + e.getMessage());
+			Reporter.addStepLogInfo(btn.toString() + "element is not clicked" + e.getMessage());
 		}
 	}
 
@@ -452,10 +452,6 @@ public class FunctionalLibrary {
 
 	}
 
-	public static void waitForProgressMeterVanish() {
-		WebDriverWait wait = new WebDriverWait(driver, 90);
-		wait.until(ExpectedConditions.invisibilityOfElementLocated(By.className("spark-progress__meter")));
-	}
 
 	public static String getRandomString(int length) {
 		char[] chars = "abcdefghijklmnopqrstuvwxyz".toCharArray();
