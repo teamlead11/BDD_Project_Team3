@@ -11,7 +11,7 @@ public class BaseClass {
 	public static void beforeScenario() {
 
 		FunctionalLibrary.driverInit();
-		FunctionalLibrary.driver.get("http://www.phptravels.net/");
+		FunctionalLibrary.driver.get("http://www.phptravels.net");
 	}
 
 	@After

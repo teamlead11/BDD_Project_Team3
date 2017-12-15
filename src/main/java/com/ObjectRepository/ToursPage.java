@@ -17,7 +17,7 @@ public class ToursPage extends FunctionalLibrary {
 	private List<WebElement> tourslinks;
 
 	@FindBy(xpath = "//div[@class='text-success fs18 text-left go-text-right go-right review ']/b/small")
-	private WebElement toursUSD;
+	private List<WebElement> toursUSD;
 
 	@FindBy(xpath = "//i[@class='icon-thumbs-up-4']")
 	private WebElement toursThumbsRatings;
@@ -60,11 +60,8 @@ public class ToursPage extends FunctionalLibrary {
 		List<WebElement> pages = getTourslinks();
 
 		for (int i = 0; i < pages.size(); i++) {
-			String pages1 = pages.get(i).findElement(By.xpath("..")).getText();
-			System.out.println(pages1);
-			Thread.sleep(3000);
+			pages.get(i).findElement(By.xpath("..")).getText();
 			if (pages.get(i).getText().equals(linkname)) {
-				System.out.println("Condition True");
 				requiredElement = pages.get(i).findElement(By.xpath("//*[@class='btn btn-action btn-block']"));
 				break;
 			}
@@ -77,22 +74,26 @@ public class ToursPage extends FunctionalLibrary {
 		this.tourslinks = tourslinks;
 	}
 
-	/*
-	 * public List<WebElement> getToursUSD() { return (List<WebElement>)
-	 * toursUSD; }
-	 * 
-	 * public void getExpectedUSD(String reqiuredusd) { List<WebElement> allUSD
-	 * = getToursUSD(); WebElement requiredElement = null; for (int i = 0; i <
-	 * allUSD.size(); i++) { String actualusd =
-	 * allUSD.get(i).findElement(By.xpath("..")).getText(); if
-	 * (actualusd.equals(reqiuredusd)) {
-	 * 
-	 * } }
-	 * 
-	 * }
-	 */
+	public List<WebElement> getToursUSD() {
+		return toursUSD;
+	}
 
-	public void setToursUSD(WebElement toursUSD) {
+	public void getExpectedUSD(String requiredusd) {
+		WebElement requiredElement = null;
+		List<WebElement> allUSD = getToursUSD();
+		for (int i = 0; i < allUSD.size(); i++) {
+			System.out.println(allUSD.get(i).findElement(By.xpath("b")).getText());
+			String actualusd = allUSD.get(i).findElement(By.xpath("b")).getText();
+			if(actualusd.equals(requiredusd)){
+				List<WebElement> elements = driver.findElements(By.xpath("//button[(text()='Details')]"));
+				requiredElement = elements.get(i);
+				break;
+			}
+		}
+click(requiredElement);
+	}
+
+	public void setToursUSD(List<WebElement> toursUSD) {
 		this.toursUSD = toursUSD;
 	}
 
