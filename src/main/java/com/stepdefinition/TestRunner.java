@@ -1,3 +1,4 @@
+
 package com.stepdefinition;
 
 import java.io.File;
@@ -12,12 +13,13 @@ import cucumber.api.CucumberOptions;
 import cucumber.api.junit.Cucumber;
 
 @RunWith(Cucumber.class)
-@CucumberOptions(features = "src/test/resources/com/Login", glue = { "com.stepdefinition" }, plugin = {
+@CucumberOptions(features = "src/test/resources/com/Hotel", glue = { "com.stepdefinition" }, tags= {"@maintag"}, plugin = {
 		"com.resources.ExtentCucumberFormatter:" })
 
 public class TestRunner {
 
 	@BeforeClass
+	
 	public static void beforeClass() {
 		LocalDateTime now = LocalDateTime.now();
 		int year = now.getYear();
