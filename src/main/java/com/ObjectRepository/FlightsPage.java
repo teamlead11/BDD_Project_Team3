@@ -21,6 +21,7 @@ public class FlightsPage extends FunctionalLibrary {
 	public WebElement getBtnBookNow() {
 		return btnBookNow;
 	}
+	
 
 	@FindBy(id = "email")
 	private WebElement txtEmailId;
