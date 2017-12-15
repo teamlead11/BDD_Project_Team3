@@ -1,5 +1,5 @@
-#Author: aparna@your.domain.com
-@tag
+
+@maintag
 Feature: Verification of Hotel Page Footer Scenarios
  
 
