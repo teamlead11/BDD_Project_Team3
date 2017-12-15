@@ -11,9 +11,9 @@ import com.resources.FunctionalLibrary;
 
 public class HotelsPage extends FunctionalLibrary {
 	
-	@FindBy(xpath = "//img[@alt='PHPTRAVELS'and @class='logo']")
+	@FindBy(xpath = "//img[@src='http://www.phptravels.net/uploads/global/phptravels.png']")
 	private WebElement phpLogo;
-	@FindBy(xpath = "//a//strong[text()='PHPTRAVELS']")
+	@FindBy(xpath = "//p//a//strong[text()='PHPTRAVELS']")
 	private WebElement phpText;
 	@FindBy(xpath = "//input[@type='email']")
 	private WebElement emailNewsletter;
@@ -31,7 +31,7 @@ public class HotelsPage extends FunctionalLibrary {
 	private WebElement sitemapLink;
 	@FindBy(xpath = "//a//img[@src='http://www.phptravels.net/uploads/global/logo.png' and @class='foot-brand center-block img-responsive']")
 	private WebElement travelagencyLink;
-	@FindBy(xpath = "//ul[@class='footerlist go-right go-text-right'][1]")
+	@FindBy(xpath = "//*[@id='footer']//div[1]//div[2]//ul")
 	private WebElement companyDetails;
 	@FindBy(xpath = "//ul[@class='footerlist go-right go-text-right'][2]")
 	private WebElement businessDetails;
@@ -115,19 +115,27 @@ public class HotelsPage extends FunctionalLibrary {
 	// custom method
 	public void companyLinks(String companylink) {
 		WebElement element = null;
-		//jsScrollPageDown(getExtranetLogin());
+		try {
+		System.out.println(companylink);
 		List<WebElement> options = getCompanyDetails().findElements(By.tagName("li"));
+		int size = options.size();
+		System.out.println(size);
+		String text1=options.get(0).findElement(By.tagName("a")).getText();
+		System.out.println(text1);
 		for (int i = 0; i < options.size(); i++) {
 			String text = options.get(i).getText();
 			System.out.println(text);
 			if (text.equals(companylink)) {
 				element = options.get(i).findElement(By.tagName("a"));
 				break;
+				}
 			}
-		}
 		click(element);
-	}
-
+		}
+		catch(Exception e) {
+			e.printStackTrace();
+		}
+	}	
 	public void businessLinks(String businesslink) {
 		WebElement element = null;
 		List<WebElement> options = getBusinessDetails().findElements(By.tagName("li"));
