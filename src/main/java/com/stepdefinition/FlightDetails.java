@@ -16,7 +16,7 @@ public class FlightDetails extends FunctionalLibrary {
 	@Given("^I am on Fligh Details page$")
 	public void i_am_on_Fligh_Details_page() {
 		driver.get("http://www.phptravels.net");
-		driver.findElement(By.xpath("//a[@href='http://www.phptravels.net/flight']")).click();
+		driver.findElement(By.xpath("//a[@href='http://www.phptravels.net/air']")).click();
 	}
 
 	@When("^I enter the Booking Page by pressing on Book as Guest Button$")
@@ -24,7 +24,7 @@ public class FlightDetails extends FunctionalLibrary {
 		FlightsPage F = new FlightsPage();
 		click(F.getBtnBookNow());
 		System.out.println(F.getBtnBookNow().getText());
-		click(F.getBtnGuest());
+		clickjs(F.getBtnGuest());
 
 	}
 
