@@ -1,5 +1,8 @@
 package com.stepdefinition;
 
+import java.util.concurrent.TimeUnit;
+
+import org.junit.Assert;
 import org.openqa.selenium.By;
 
 import com.ObjectRepository.BlogPage;
@@ -13,30 +16,22 @@ public class Blogpages extends FunctionalLibrary {
 	@Given("^I am on Blog page$")
 	public void i_am_on_Blog_page() throws Throwable {
 		driverInit();
-		driver.get("http://www.phptravels.net");
-		driver.findElement(By.xpath("//a[@href='http://www.phptravels.net/blog']")).click();
+		driver.get("http://www.phptravels.net/blog");
 	}
 
 	@When("^I click checking for all image$")
 	public void i_click_checking_for_all_image() throws Throwable {
 		BlogPage blog = new BlogPage();
-		blog.pageNation("2");
+		blog.BlogPagesNow("Peace Train A Long Time Coming");
 
 	}
 
 	@Then("^I validate images$")
 	public void i_validate_images() throws Throwable {
-		BlogPage blog = new BlogPage();
-		if (blog.getGetSecondPage().getText().equals(blog.getGetSecondPage())) {
-			System.out.println("valid");
-			
-		}
-			
-	else
-	{
-				System.out.println("Invalid");
-			}
-
+		String CurrentTitle = FunctionalLibrary.driver.getTitle();
+		Assert.assertEquals("Peace Train A Long Time Coming", CurrentTitle);
+		System.out.println("Expected result passed:Peace Train A Long Time Coming");
+		driver.manage().timeouts().implicitlyWait(10,TimeUnit.SECONDS);
+		FunctionalLibrary.closeBrowser();
 	}
-
 }

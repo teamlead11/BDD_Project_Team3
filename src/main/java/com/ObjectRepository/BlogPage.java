@@ -3,28 +3,26 @@ package com.ObjectRepository;
 import java.util.List;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.By.ByTagName;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.remote.server.handler.SendKeys;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 import com.resources.FunctionalLibrary;
 
 public class BlogPage extends FunctionalLibrary {
+	@FindBy(xpath = "//div[@class='panel-body']//*[@class='col-md-8']")
+	private List<WebElement> txtTitles;
 
-	@FindBy(className = "go-right RTL mtb0")
-	private List<WebElement> btnTitles;
+	@FindBy(xpath = "//input[@class='form-control sub_email']")
+	private WebElement txtinputsubEmail;
 
-	@FindBy(className = "img-responsive")
-	private WebElement imgDetails;
-
-	@FindBy(className = "nav nav-pills nav-justified")
-	private WebElement btntablist;
-
-	@FindBy(className = "form-control sub_email")
-	private WebElement labsubEmail;
-
-	@FindBy(className = "btn btn-primary")
+	@FindBy(xpath = "//*[@class='btn btn-primary']")
 	private WebElement btnsearch;
+
+	@FindBy(xpath = "//*[@class='nav nav-pills nav-justified']")
+	private List<WebElement> btntablist;
 
 	@FindBy(className = "list-group-item")
 	private WebElement lnkCategories;
@@ -38,24 +36,32 @@ public class BlogPage extends FunctionalLibrary {
 	@FindBy(className = "panel-heading title_rtl")
 	private WebElement getSecondPage;
 
+	public List<WebElement> getTxtTitles() {
+		return txtTitles;
+	}
+
+	public WebElement getTxtinputsubEmail() {
+		return txtinputsubEmail;
+	}
+
+	public List<WebElement> getBtntablist() {
+		return btntablist;
+	}
+
 	public WebElement getGetSecondPage() {
 		return getSecondPage;
 	}
 
 	public List<WebElement> getBtnTitles() {
-		return btnTitles;
+		return txtTitles;
 	}
 
-	public WebElement getImgDetails() {
-		return imgDetails;
-	}
-
-	public WebElement getBtnclicktab() {
+	public List<WebElement> getBtnclicktab() {
 		return btntablist;
 	}
 
 	public WebElement getLabsubEmail() {
-		return labsubEmail;
+		return txtinputsubEmail;
 	}
 
 	public WebElement getBtnsearch() {
@@ -75,37 +81,49 @@ public class BlogPage extends FunctionalLibrary {
 	}
 
 	public BlogPage() {
-		PageFactory.initElements(FunctionalLibrary.driver, this);
+		PageFactory.initElements(driver, this);
 	}
 
 	public void BlogPagesNow(String indexvalue) {
-		WebElement req = null;
-		List<WebElement> btn = getBtnTitles();
-		System.out.println(btn.size());
-		int size = btn.size();
-		for (int i = 0; i < size; i++) {
-			if (btn.get(i).getText().equals(indexvalue)) {
-				req = btn.get(i);
+
+		WebElement requiredElement = null;
+		List<WebElement> Titles = getBtnTitles();
+		for (int i = 0; i < Titles.size(); i++) {
+			String Titles1 = Titles.get(i).findElement(By.tagName("h3")).getText();
+			System.out.println(Titles1);
+			if (Titles.get(i).findElement(By.tagName("h3")).getText().equals(indexvalue)) {
+				System.out.println("Condition True");
+				Titles.get(i).findElement(By.tagName("h3")).click();
 				break;
 			}
-			click(req);
+
+		}
+	}
+
+	public void pageNumbers(String PageNumber) {
+		 WebElement req = null;
+		List<WebElement> btntablist2 = getBtntablist();
+		for (int i = 0; i < btntablist2.size(); i++) {
+			String P = btntablist2.get(i).findElement(By.xpath("//a[contains(text(),'2')]")).getText();
+			System.out.println(P);
+			if (btntablist2.get(i).findElement(By.xpath("//a[contains(text(),'2')]")).getText().equals(PageNumber)) {
+				System.out.println("Condition True");
+				btntablist2.get(i).findElement(By.xpath("//a[contains(text(),'2')]")).click();
+				break;
+			}
+
 		}
 
 	}
 
-	public void pageNation(String pageNumber) {
-		WebElement req = null;
-		List<WebElement> btnNation = getBtnclicktab().findElements(By.tagName("li"));
-		System.out.println(btnNation.size());
-		int size = btnNation.size();
-		for (int i = 0; i < size; i++) {
-			if (btnNation.get(i).getText().equals(pageNumber)) {
-				req = btnNation.get(i);
-				break;
-			}
-			click(req);
-		}
+	public void inputtxtvalue(String name) {
+		WebElement inptxt = getLabsubEmail();
+		inptxt.sendKeys(name);
+	}
 
+	public void btnSearch() {
+		WebElement clickbtnSearch = getBtnsearch();
+		clickbtnSearch.click();
 	}
 
 }

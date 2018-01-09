@@ -30,10 +30,13 @@ public class Titles extends FunctionalLibrary {
 	@Then("^I validate the Text Box$")
 	public void i_validate_the_Text_Box() throws Throwable {
 		BlogPage blog = new BlogPage();
-		String CurrentTitle = FunctionalLibrary.driver.getTitle();
-		Assert.assertEquals("", CurrentTitle);
-		System.out.println("Expected result passed");
-		Thread.sleep(3000);
+		if (blog.getBtnsearch().getText().equals(blog.getBtnsearch())) {
+			System.out.println("valid");
+		}
+		else 
+		{
+			System.out.println("Invalid");
+		}
 
 	}
 

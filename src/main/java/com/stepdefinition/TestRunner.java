@@ -7,19 +7,19 @@ import org.junit.BeforeClass;
 import org.junit.runner.RunWith;
 
 import com.resources.ExtentCucumberFormatter;
+import com.resources.FunctionalLibrary;
 
 import cucumber.api.CucumberOptions;
 import cucumber.api.junit.Cucumber;
 
 @RunWith(Cucumber.class)
-@CucumberOptions(features = "src/test/resources/com/Login", glue = { "com.stepdefinition" }, plugin = {
-		"com.resources.ExtentCucumberFormatter:" })
+@CucumberOptions(features = "E:\\Phptravels\\BDD_Project_Team3\\src\\test\\resources\\com\\BlogPage\\pageNumbers.feature", glue = { "com.stepdefinition" })
 
-public class TestRunner {
+public class TestRunner extends FunctionalLibrary{
 
 	@BeforeClass
 	public static void beforeClass() {
-		LocalDateTime now = LocalDateTime.now();
+		/*LocalDateTime now = LocalDateTime.now();
 		int year = now.getYear();
 		int month = now.getMonthOfYear();
 		int day = now.getDayOfMonth();
@@ -30,6 +30,7 @@ public class TestRunner {
 		String filePath = System.getProperty("user.dir") + "\\src\\main\\resources\\AutomationSuite\\Report_"
 				+ snewFilename1 + ".html";
 		File file = new File(filePath);
-		ExtentCucumberFormatter.setExtentHtmlReport(file);
+		ExtentCucumberFormatter.setExtentHtmlReport(file);*/
+//        driver.get("");
 	}
 }
