@@ -2,7 +2,6 @@ package com.ObjectRepository;
 
 import java.util.List;
 
-import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -150,8 +149,8 @@ public class CarsPage {
 		   List<WebElement> images=getAllCarDetailsButton();
 		   for(int i=0;i<images.size();i++)
 		   {
-		 	  String actualcarImage=getAllCarImage().get(i).findElement(By.xpath("..")).getText();
-		 	  System.out.println(actualcarImage);
+//		 	  String actualcarImage=getAllCarImage().get(i).findElement(By.xpath("..")).getText();
+//		 	  System.out.println(actualcarImage);
 		 	  if(images.get(i).getText().equals(name))
 		 	  {
 		 		  reqPage=images.get(i);

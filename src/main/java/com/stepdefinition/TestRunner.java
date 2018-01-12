@@ -14,7 +14,7 @@ import cucumber.api.junit.Cucumber;
 
 @RunWith(Cucumber.class)
 
-@CucumberOptions(features = "src/test/resources/com/FlightDetails/FlightDetails.feature", glue = { "com.stepdefinition" }, plugin = {
+@CucumberOptions(features = "src/test/resources/com/Amazon/Amazon.feature", glue = { "com.stepdefinition" }, plugin = {
 
 		"com.resources.ExtentCucumberFormatter:" })
 

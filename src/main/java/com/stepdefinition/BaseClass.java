@@ -1,4 +1,4 @@
-package com.stepdefinition; 
+package com.stepdefinition;
 
 import com.resources.FunctionalLibrary;
 
@@ -9,10 +9,9 @@ public class BaseClass {
 
 	@Before
 	public static void beforeScenario() {
-		
+
 		FunctionalLibrary.driverInit();
 
-		FunctionalLibrary.driver.get("http://www.phptravels.net/cars");
 	}
 
 	@After
