@@ -2,6 +2,7 @@
 package com.resources;
 
 import java.text.*;
+
 import java.awt.AWTException;
 import java.awt.Robot;
 import java.awt.event.KeyEvent;
@@ -51,7 +52,7 @@ public class FunctionalLibrary {
 	private static String homeWindow = null;
 
 	public static WebDriver driverInit() {
-		System.setProperty("webdriver.chrome.driver", "G:\\git\\driver\\chromedriver.exe");
+		System.setProperty("webdriver.chrome.driver", "G:\\git\\src\\test\\resources\\lib\\chromedriver.exe");
 		driver = new ChromeDriver();
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		driver.manage().window().maximize();
