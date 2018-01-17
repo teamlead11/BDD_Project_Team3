@@ -24,8 +24,8 @@ public class BlogPage extends FunctionalLibrary {
 	@FindBy(xpath = "//*[@class='nav nav-pills nav-justified']")
 	private List<WebElement> btntablist;
 
-	@FindBy(className = "list-group-item")
-	private WebElement lnkCategories;
+	@FindBy(xpath = "(//div[@class=\"panel panel-default\"])[3]")
+	private List<WebElement> lnkCategories;
 
 	@FindBy(className = "img-responsive post-img img-fade")
 	private WebElement imgfade;
@@ -68,7 +68,7 @@ public class BlogPage extends FunctionalLibrary {
 		return btnsearch;
 	}
 
-	public WebElement getLnkCategories() {
+	public List<WebElement> getLnkCategories() {
 		return lnkCategories;
 	}
 
@@ -101,7 +101,7 @@ public class BlogPage extends FunctionalLibrary {
 	}
 
 	public void pageNumbers(String PageNumber) {
-		 WebElement req = null;
+		WebElement req = null;
 		List<WebElement> btntablist2 = getBtntablist();
 		for (int i = 0; i < btntablist2.size(); i++) {
 			String P = btntablist2.get(i).findElement(By.xpath("//a[contains(text(),'2')]")).getText();
@@ -122,8 +122,22 @@ public class BlogPage extends FunctionalLibrary {
 	}
 
 	public void btnSearch() {
+		
 		WebElement clickbtnSearch = getBtnsearch();
 		clickbtnSearch.click();
 	}
+	public void CategoriesList(String Items) {
+		WebElement req = null;
+		List<WebElement> btntablist2 = getLnkCategories();
+		for (int i = 0; i < btntablist2.size(); i++) {
+			String P = btntablist2.get(i).findElement(By.tagName("a")).getText();
+			System.out.println(P);
+			if (btntablist2.get(i).findElement(By.tagName("a")).getText().matches(P)) {
+				btntablist2.get(i).findElement(By.tagName("a")).click();
+				break;
+			}
+		}
+	}
+
 
 }

@@ -13,7 +13,7 @@ import cucumber.api.CucumberOptions;
 import cucumber.api.junit.Cucumber;
 
 @RunWith(Cucumber.class)
-@CucumberOptions(features = "E:\\Phptravels\\BDD_Project_Team3\\src\\test\\resources\\com\\BlogPage\\pageNumbers.feature", glue = { "com.stepdefinition" })
+@CucumberOptions(features = "E:\\Phptravels\\BDD_Project_Team3\\src\\test\\resources\\com\\FlipKart.feature", glue = { "com.stepdefinition" })
 
 public class TestRunner extends FunctionalLibrary{
 
